@@ -28,14 +28,15 @@
         android:hint="@string/busqueda" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/lupaButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/editText"
         android:layout_marginStart="22dp"
         android:layout_toEndOf="@+id/editText"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable"
-        android:contentDescription="@string/b_lupa" />
+        android:contentDescription="@string/b_lupa"
+        android:onClick="sendActivity"/>
 
 
 </RelativeLayout>

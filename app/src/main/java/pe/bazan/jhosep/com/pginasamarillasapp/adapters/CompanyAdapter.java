@@ -1,5 +1,6 @@
 package pe.bazan.jhosep.com.pginasamarillasapp.adapters;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import pe.bazan.jhosep.com.pginasamarillasapp.R;
+import pe.bazan.jhosep.com.pginasamarillasapp.activities.InfoActivity;
 import pe.bazan.jhosep.com.pginasamarillasapp.models.Company;
 
 /**
@@ -20,6 +22,7 @@ import pe.bazan.jhosep.com.pginasamarillasapp.models.Company;
 public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHolder>{
 
     private List<Company> companies;
+    public View itemView;
 
     public void setCompany (List<Company> companies) {this.companies = companies;}
 
@@ -41,7 +44,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
     @Override
     public CompanyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_company, parent, false);
+         itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_company, parent, false);
         ViewHolder viewHolder = new ViewHolder(itemView);
         return viewHolder;
     }
@@ -62,9 +65,19 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
             @Override
                     public void onClick(View v){
                 Toast.makeText(holder.itemView.getContext(), "Detaills: "+company.getName(), Toast.LENGTH_SHORT).show();
+                redireccionar();
             }
 
         });
+
+
+    }
+
+    private void redireccionar() {
+
+        Intent intent = new Intent(itemView.getContext(), InfoActivity.class);
+            itemView.getContext().startActivity(intent);
+
 
     }
 
