@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PáginasAmarillasApp</string>
+    <string name="buscador">Buscador</string>
+    <string name="busqueda">Busqueda</string>
+    <string name="b_lupa">Lupa</string>
+</resources>
