@@ -31,6 +31,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
         TextView nameText;
         TextView addressText;
         TextView phoneText;
+        TextView urlText;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -38,6 +39,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
             nameText = itemView.findViewById(R.id.nameText);
             addressText = itemView.findViewById((R.id.addressText));
             phoneText = itemView.findViewById(R.id.phoneText);
+
     }
 }
 
@@ -64,8 +66,19 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
             @Override
                     public void onClick(View v){
-                Toast.makeText(holder.itemView.getContext(), "Detaills: "+company.getName(), Toast.LENGTH_SHORT).show();
-                redireccionar();
+                /*Toast.makeText(holder.itemView.getContext(), "Detaills: "+company.getName(), Toast.LENGTH_SHORT).show();
+                redireccionar();*/
+
+                Intent intent = new Intent(itemView.getContext(), InfoActivity.class);
+                intent.putExtra("info", company.getInfo());
+                intent.putExtra("name", company.getName());
+                intent.putExtra("address", company.getAddress());
+                intent.putExtra("phone", company.getPhone());
+                intent.putExtra("category", company.getCategory());
+                intent.putExtra("url", company.getUrl());
+                intent.putExtra("logo", company.getLogo());
+
+                itemView.getContext().startActivity(intent);
             }
 
         });
@@ -75,8 +88,8 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
     private void redireccionar() {
 
-        Intent intent = new Intent(itemView.getContext(), InfoActivity.class);
-            itemView.getContext().startActivity(intent);
+        /*Intent intent = new Intent(itemView.getContext(), InfoActivity.class);
+            itemView.getContext().startActivity(intent);*/
 
 
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import pe.bazan.jhosep.com.pginasamarillasapp.R;
 
@@ -17,5 +18,8 @@ public class BuscadorActivity extends AppCompatActivity {
     public void sendActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
+
+
     }
 }
