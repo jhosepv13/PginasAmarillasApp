@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.bazan.jhosep.com.pginasamarillasapp.R;
@@ -31,7 +32,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
         TextView nameText;
         TextView addressText;
         TextView phoneText;
-        TextView urlText;
+        //TextView urlText;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -97,6 +98,11 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
     @Override
     public int getItemCount() {
         return companies.size();
+    }
+
+    public void filterList(ArrayList<Company> filter){
+        companies = filter;
+        notifyDataSetChanged();
     }
 
 }
